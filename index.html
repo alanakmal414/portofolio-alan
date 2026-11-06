@@ -1,187 +1,228 @@
-    :root {
-        --pastel-blue: #9db4c0;
-        --silver: #e2e8f0;
-        --dark-gray: #2d3748;
-        --white: #ffffff;
-    }
-
-    body, html { 
-        margin: 0; padding: 0; 
-        font-family: 'Poppins', sans-serif; 
-        background-color: var(--white); 
-        overflow-x: hidden;
-    }
-
-    /* Konfigurasi Slider Horizontal (Desktop) */
-    .slider-viewport { width: 100vw; height: 100vh; overflow: hidden; position: relative; }
-    .slider-track { 
-        display: flex; 
-        width: 300vw; 
-        height: 100vh; 
-        transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1); 
-    }
-    
-    .slide { width: 100vw; height: 100vh; }
-
-    /* Kustomisasi Warna & Tampilan */
-    .bg-pastel { background-color: var(--pastel-blue); color: var(--white); }
-    .bg-silver-light { background-color: #f7fafc; border: 1px solid var(--silver); }
-    .text-pastel { color: var(--pastel-blue); }
-    .border-pastel { border-color: var(--pastel-blue) !important; }
-
-    /* Foto Profil */
-    .profile-pic { 
-        width: 200px; height: 200px; border-radius: 50%; 
-        border: 5px solid var(--white); object-fit: cover; 
-        box-shadow: 0 10px 30px rgba(157, 180, 192, 0.5);
-    }
-
-    /* Efek Teks Navigasi Outline (Menu Kanan) */
-    .nav-menu li { 
-        font-size: clamp(3rem, 5vw, 4.5rem); /* Ukuran dinamis */
-        font-weight: 800; line-height: 1.2; 
-        color: transparent; -webkit-text-stroke: 1.5px var(--silver); 
-        cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; 
-    }
-    .nav-menu li:hover, .nav-menu li.active { 
-        color: var(--pastel-blue); -webkit-text-stroke: 0; transform: translateX(15px); 
-    }
-    
-    /* Tombol */
-    .btn-custom { padding: 10px 25px; font-weight: 700; transition: 0.3s; border-radius: 30px; }
-    .btn-pastel { background-color: var(--white); color: var(--pastel-blue); }
-    .btn-pastel:hover { background-color: var(--silver); color: var(--dark-gray); }
-    .btn-outline-white { border: 2px solid var(--white); color: var(--white); }
-    .btn-outline-white:hover { background-color: var(--white); color: var(--pastel-blue); }
-
-    /* Galeri */
-    .gallery-img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; border: 3px solid var(--silver); transition: transform 0.3s; }
-    .gallery-img:hover { transform: scale(1.05); }
-
-    .back-btn { 
-        position: absolute; top: 30px; left: 30px; cursor: pointer; 
-        font-weight: bold; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;
-        text-decoration: none; color: var(--white); border: 1px solid var(--white); padding: 8px 15px; border-radius: 20px;
-    }
-    .back-btn:hover { background: var(--white); color: var(--pastel-blue); }
-
-    /* Responsivitas Layar HP (Mobile View) */
-    @media (max-width: 768px) {
-        /* Matikan slider horizontal, ubah ke gulir vertikal (scroll down) */
-        .slider-viewport { height: auto; overflow: auto; }
-        .slider-track { flex-direction: column; width: 100vw; height: auto; transform: none !important; }
-        .slide { height: auto; min-height: 100vh; }
-        .back-btn { display: none; } /* Sembunyikan tombol kembali di HP karena sistemnya scroll */
-    }
-</style>
-
-
-    <!-- SLIDE 1: HOME & ABOUT -->
-    <div class="slide d-flex flex-column flex-md-row" id="slide0">
-        <!-- Sisi Kiri -->
-        <div class="col-12 col-md-5 bg-pastel d-flex flex-column align-items-center justify-content-center text-center p-5">
-            <!-- Ubah src gambar di bawah ini dengan foto Anda -->
-            <img src="foto-alan.jpg" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'" class="profile-pic mb-4" alt="Alan Akmal">
-            
-            <h1 class="fw-bold mb-1">I'm Alan Akmal</h1>
-            <p class="fst-italic opacity-75 mb-4">"Where there's a will, there's a way"</p>
-            
-            <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
-                <a href="cv_alan.pdf" class="btn btn-custom btn-pastel shadow-sm">Download CV</a>
-                <a href="mailto:alanak12@gmail.com" class="btn btn-custom btn-outline-white">Contact Me</a>
-            </div>
-            
-            <div class="mt-2 p-3 bg-white bg-opacity-10 rounded border border-light">
-                <small class="d-block text-uppercase fw-bold opacity-75">Direct Email:</small>
-                <span class="fs-5 fw-bold">alanak12@gmail.com</span>
-            </div>
-        </div>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alan | Portofolio Siber</title>
+    <!-- Memuat Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;0,800;1,300&display=swap');
         
-        <!-- Sisi Kanan -->
-        <div class="col-12 col-md-7 d-flex flex-column justify-content-center p-5 p-md-5 bg-white">
-            <ul class="nav-menu list-unstyled mb-4">
-                <li class="active" onclick="goToSlide(0)">About Me</li>
-                <li onclick="goToSlide(1)">Portfolio</li>
-                <li onclick="goToSlide(2)">Education</li>
-            </ul>
-            <p class="fs-5 text-secondary border-start border-4 border-pastel ps-4 mt-2 lh-lg" style="max-width: 600px;">
-                Halo! Saya adalah mahasiswa S1 Ilmu Komunikasi yang mendalami titik temu antara teknologi siber dan strategi komunikasi massa. Berbekal pemahaman manajemen media sosial dan literasi digital, saya mentransformasikan strategi komunikasi menjadi eksekusi teknis yang aman, terukur, dan berdampak.
-            </p>
-        </div>
-    </div>
+        :root {
+            --pastel-blue: #9db4c0;
+            --silver: #e2e8f0;
+            --dark-gray: #2d3748;
+            --white: #ffffff;
+        }
 
-    <!-- SLIDE 2: PORTFOLIO & GALLERY -->
-    <div class="slide d-flex flex-column flex-md-row" id="slide1">
-        <!-- Sisi Kiri -->
-        <div class="col-12 col-md-5 bg-pastel d-flex flex-column align-items-center justify-content-center text-center p-5 position-relative">
-            <a href="#" class="back-btn" onclick="goToSlide(0); return false;">&#8592; Back</a>
-            <h1 class="display-4 fw-bold">My Portfolio</h1>
-            <p class="opacity-75 fs-5">Pengalaman & Galeri Proyek</p>
-        </div>
+        body, html { 
+            margin: 0; padding: 0; 
+            font-family: 'Poppins', sans-serif; 
+            background-color: var(--white); 
+            overflow-x: hidden;
+        }
+
+        /* Konfigurasi Slider Horizontal (Desktop) */
+        .slider-viewport { width: 100vw; height: 100vh; overflow: hidden; position: relative; }
+        .slider-track { 
+            display: flex; 
+            width: 300vw; 
+            height: 100vh; 
+            transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1); 
+        }
         
-        <!-- Sisi Kanan (Scrollable pada desktop) -->
-        <div class="col-12 col-md-7 p-5 bg-white" style="overflow-y: auto;">
-            
-            <!-- Bagian Galeri Foto -->
-            <h3 class="fw-bold text-pastel mb-3">Galeri Karya</h3>
-            <div class="row g-3 mb-5">
-                <div class="col-6 col-md-4">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80" class="gallery-img shadow-sm" alt="Web App">
+        .slide { width: 100vw; height: 100vh; }
+
+        /* Kustomisasi Warna & Tampilan */
+        .bg-pastel { background-color: var(--pastel-blue); color: var(--white); }
+        .bg-silver-light { background-color: #f7fafc; border: 1px solid var(--silver); }
+        .text-pastel { color: var(--pastel-blue); }
+        .border-pastel { border-color: var(--pastel-blue) !important; }
+
+        /* Foto Profil */
+        .profile-pic { 
+            width: 200px; height: 200px; border-radius: 50%; 
+            border: 5px solid var(--white); object-fit: cover; 
+            box-shadow: 0 10px 30px rgba(157, 180, 192, 0.5);
+        }
+
+        /* Efek Teks Navigasi Outline (Menu Kanan) */
+        .nav-menu li { 
+            font-size: clamp(3rem, 5vw, 4.5rem); /* Ukuran dinamis */
+            font-weight: 800; line-height: 1.2; 
+            color: transparent; -webkit-text-stroke: 1.5px var(--silver); 
+            cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; 
+        }
+        .nav-menu li:hover, .nav-menu li.active { 
+            color: var(--pastel-blue); -webkit-text-stroke: 0; transform: translateX(15px); 
+        }
+        
+        /* Tombol */
+        .btn-custom { padding: 10px 25px; font-weight: 700; transition: 0.3s; border-radius: 30px; }
+        .btn-pastel { background-color: var(--white); color: var(--pastel-blue); }
+        .btn-pastel:hover { background-color: var(--silver); color: var(--dark-gray); }
+        .btn-outline-white { border: 2px solid var(--white); color: var(--white); }
+        .btn-outline-white:hover { background-color: var(--white); color: var(--pastel-blue); }
+
+        /* Galeri */
+        .gallery-img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; border: 3px solid var(--silver); transition: transform 0.3s; }
+        .gallery-img:hover { transform: scale(1.05); }
+
+        .back-btn { 
+            position: absolute; top: 30px; left: 30px; cursor: pointer; 
+            font-weight: bold; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;
+            text-decoration: none; color: var(--white); border: 1px solid var(--white); padding: 8px 15px; border-radius: 20px;
+        }
+        .back-btn:hover { background: var(--white); color: var(--pastel-blue); }
+
+        /* Responsivitas Layar HP (Mobile View) */
+        @media (max-width: 768px) {
+            /* Matikan slider horizontal, ubah ke gulir vertikal (scroll down) */
+            .slider-viewport { height: auto; overflow: auto; }
+            .slider-track { flex-direction: column; width: 100vw; height: auto; transform: none !important; }
+            .slide { height: auto; min-height: 100vh; }
+            .back-btn { display: none; } /* Sembunyikan tombol kembali di HP karena sistemnya scroll */
+        }
+    </style>
+</head>
+<body>
+
+<div class="slider-viewport">
+    <div class="slider-track" id="sliderTrack">
+        
+        <!-- SLIDE 1: HOME & ABOUT -->
+        <div class="slide d-flex flex-column flex-md-row" id="slide0">
+            <!-- Sisi Kiri -->
+            <div class="col-12 col-md-5 bg-pastel d-flex flex-column align-items-center justify-content-center text-center p-5">
+                <!-- Ubah src gambar di bawah ini dengan foto Anda -->
+                <img src="foto-alan.jpg" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'" class="profile-pic mb-4" alt="Alan Akmal">
+                
+                <h1 class="fw-bold mb-1">I'm Alan Akmal</h1>
+                <p class="fst-italic opacity-75 mb-4">"Where there's a will, there's a way"</p>
+                
+                <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
+                    <a href="cv_alan.pdf" class="btn btn-custom btn-pastel shadow-sm">Download CV</a>
+                    <a href="mailto:alanak12@gmail.com" class="btn btn-custom btn-outline-white">Contact Me</a>
                 </div>
-                <div class="col-6 col-md-4">
-                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=400&q=80" class="gallery-img shadow-sm" alt="Sosmed">
-                </div>
-                <div class="col-12 col-md-4">
-                    <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=400&q=80" class="gallery-img shadow-sm" alt="Drone">
+                
+                <div class="mt-2 p-3 bg-white bg-opacity-10 rounded border border-light">
+                    <small class="d-block text-uppercase fw-bold opacity-75">Direct Email:</small>
+                    <span class="fs-5 fw-bold">alanak12@gmail.com</span>
                 </div>
             </div>
-
-            <h3 class="fw-bold text-pastel mb-3 mt-4">Pengalaman Profesional</h3>
             
-            <div class="card p-4 mb-3 border-0 bg-silver-light shadow-sm border-start border-4 border-pastel">
-                <h4 class="fw-bold text-dark mb-1">Pengembang Aplikasi Mandiri</h4>
-                <p class="text-secondary small mb-2">Proyek Inventarisku</p>
-                <p class="mb-0 text-dark">Membangun purwarupa aplikasi manajemen aset berbasis web modern (Laravel). Bertanggung jawab atas desain antarmuka, arsitektur basis data, serta implementasi sistem keamanan peladen.</p>
-            </div>
-
-            <div class="card p-4 mb-3 border-0 bg-silver-light shadow-sm border-start border-4 border-pastel">
-                <h4 class="fw-bold text-dark mb-1">Manajer Kampanye Digital</h4>
-                <p class="text-secondary small mb-2">Indonesia Super Lawak</p>
-                <p class="mb-0 text-dark">Mengelola interaksi massa di ranah siber melalui distribusi *User Generated Content* (UGC). Berhasil merancang strategi berbasis data (Big Data & KPI) untuk meningkatkan metrik interaksi.</p>
-            </div>
-
-            <div class="card p-4 mb-3 border-0 bg-silver-light shadow-sm border-start border-4 border-pastel">
-                <h4 class="fw-bold text-dark mb-1">Sinematografi Udara</h4>
-                <p class="text-secondary small mb-2">Dokumentasi Lanskap Flores</p>
-                <p class="mb-0 text-dark">Merekam jejak visual menggunakan *drone* di kawasan Golo Mori. Melakukan penyuntingan rekaman mentah hingga proses *color grading* untuk konten publikasi estetis.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 3: EDUCATION -->
-    <div class="slide d-flex flex-column flex-md-row" id="slide2">
-        <!-- Sisi Kiri -->
-        <div class="col-12 col-md-5 bg-pastel d-flex flex-column align-items-center justify-content-center text-center p-5 position-relative">
-            <a href="#" class="back-btn" onclick="goToSlide(0); return false;">&#8592; Back</a>
-            <h1 class="display-4 fw-bold">Education</h1>
-            <p class="opacity-75 fs-5">Latar Belakang Akademis</p>
-        </div>
-        
-        <!-- Sisi Kanan -->
-        <div class="col-12 col-md-7 d-flex flex-column justify-content-center p-5 bg-white">
-            <h3 class="fw-bold text-pastel mb-4">Pendidikan Formal</h3>
-            
-            <div class="card p-4 border-0 bg-silver-light shadow-sm border-start border-4 border-pastel">
-                <h4 class="fw-bold text-dark mb-1">S1 Ilmu Komunikasi</h4>
-                <p class="text-secondary fw-bold">Universitas Terbuka <span class="fw-normal">(Saat ini)</span></p>
-                <p class="mt-3 mb-1 fw-bold text-dark">Fokus Kajian Utama:</p>
-                <ul class="text-dark lh-lg mb-0 ps-3">
-                    <li>Manajemen Media Sosial & Komunikasi Strategis</li>
-                    <li>Privasi dalam Dunia Siber (OPSEC & Perlindungan Data)</li>
-                    <li>Literasi Digital & Evaluasi Kritis Media</li>
+            <!-- Sisi Kanan -->
+            <div class="col-12 col-md-7 d-flex flex-column justify-content-center p-5 p-md-5 bg-white">
+                <ul class="nav-menu list-unstyled mb-4">
+                    <li class="active" onclick="goToSlide(0)">About Me</li>
+                    <li onclick="goToSlide(1)">Portfolio</li>
+                    <li onclick="goToSlide(2)">Education</li>
                 </ul>
+                <p class="fs-5 text-secondary border-start border-4 border-pastel ps-4 mt-2 lh-lg" style="max-width: 600px;">
+                    Halo! Saya adalah mahasiswa S1 Ilmu Komunikasi yang mendalami titik temu antara teknologi siber dan strategi komunikasi massa. Berbekal pemahaman manajemen media sosial dan literasi digital, saya mentransformasikan strategi komunikasi menjadi eksekusi teknis yang aman, terukur, dan berdampak.
+                </p>
             </div>
         </div>
-    </div>
 
+        <!-- SLIDE 2: PORTFOLIO & GALLERY -->
+        <div class="slide d-flex flex-column flex-md-row" id="slide1">
+            <!-- Sisi Kiri -->
+            <div class="col-12 col-md-5 bg-pastel d-flex flex-column align-items-center justify-content-center text-center p-5 position-relative">
+                <a href="#" class="back-btn" onclick="goToSlide(0); return false;">&#8592; Back</a>
+                <h1 class="display-4 fw-bold">My Portfolio</h1>
+                <p class="opacity-75 fs-5">Pengalaman & Galeri Proyek</p>
+            </div>
+            
+            <!-- Sisi Kanan (Scrollable pada desktop) -->
+            <div class="col-12 col-md-7 p-5 bg-white" style="overflow-y: auto;">
+                
+                <!-- Bagian Galeri Foto -->
+                <h3 class="fw-bold text-pastel mb-3">Galeri Karya</h3>
+                <div class="row g-3 mb-5">
+                    <div class="col-6 col-md-4">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80" class="gallery-img shadow-sm" alt="Web App">
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=400&q=80" class="gallery-img shadow-sm" alt="Sosmed">
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=400&q=80" class="gallery-img shadow-sm" alt="Drone">
+                    </div>
+                </div>
+
+                <h3 class="fw-bold text-pastel mb-3 mt-4">Pengalaman Profesional</h3>
+                
+                <div class="card p-4 mb-3 border-0 bg-silver-light shadow-sm border-start border-4 border-pastel">
+                    <h4 class="fw-bold text-dark mb-1">Pengembang Aplikasi Mandiri</h4>
+                    <p class="text-secondary small mb-2">Proyek Inventarisku</p>
+                    <p class="mb-0 text-dark">Membangun purwarupa aplikasi manajemen aset berbasis web modern (Laravel). Bertanggung jawab atas desain antarmuka, arsitektur basis data, serta implementasi sistem keamanan peladen.</p>
+                </div>
+
+                <div class="card p-4 mb-3 border-0 bg-silver-light shadow-sm border-start border-4 border-pastel">
+                    <h4 class="fw-bold text-dark mb-1">Manajer Kampanye Digital</h4>
+                    <p class="text-secondary small mb-2">Indonesia Super Lawak</p>
+                    <p class="mb-0 text-dark">Mengelola interaksi massa di ranah siber melalui distribusi *User Generated Content* (UGC). Berhasil merancang strategi berbasis data (Big Data & KPI) untuk meningkatkan metrik interaksi.</p>
+                </div>
+
+                <div class="card p-4 mb-3 border-0 bg-silver-light shadow-sm border-start border-4 border-pastel">
+                    <h4 class="fw-bold text-dark mb-1">Sinematografi Udara</h4>
+                    <p class="text-secondary small mb-2">Dokumentasi Lanskap Flores</p>
+                    <p class="mb-0 text-dark">Merekam jejak visual menggunakan *drone* di kawasan Golo Mori. Melakukan penyuntingan rekaman mentah hingga proses *color grading* untuk konten publikasi estetis.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: EDUCATION -->
+        <div class="slide d-flex flex-column flex-md-row" id="slide2">
+            <!-- Sisi Kiri -->
+            <div class="col-12 col-md-5 bg-pastel d-flex flex-column align-items-center justify-content-center text-center p-5 position-relative">
+                <a href="#" class="back-btn" onclick="goToSlide(0); return false;">&#8592; Back</a>
+                <h1 class="display-4 fw-bold">Education</h1>
+                <p class="opacity-75 fs-5">Latar Belakang Akademis</p>
+            </div>
+            
+            <!-- Sisi Kanan -->
+            <div class="col-12 col-md-7 d-flex flex-column justify-content-center p-5 bg-white">
+                <h3 class="fw-bold text-pastel mb-4">Pendidikan Formal</h3>
+                
+                <div class="card p-4 border-0 bg-silver-light shadow-sm border-start border-4 border-pastel">
+                    <h4 class="fw-bold text-dark mb-1">S1 Ilmu Komunikasi</h4>
+                    <p class="text-secondary fw-bold">Universitas Terbuka <span class="fw-normal">(Saat ini)</span></p>
+                    <p class="mt-3 mb-1 fw-bold text-dark">Fokus Kajian Utama:</p>
+                    <ul class="text-dark lh-lg mb-0 ps-3">
+                        <li>Manajemen Media Sosial & Komunikasi Strategis</li>
+                        <li>Privasi dalam Dunia Siber (OPSEC & Perlindungan Data)</li>
+                        <li>Literasi Digital & Evaluasi Kritis Media</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function goToSlide(index) {
+        // Cek jika ukuran layar adalah Desktop/Laptop (di atas 768px)
+        if (window.innerWidth >= 768) {
+            const track = document.getElementById('sliderTrack');
+            track.style.transform = `translateX(-${index * 100}vw)`;
+        } else {
+            // Jika di HP, efek gulir halus (smooth scroll) ke bawah
+            const slideId = 'slide' + index;
+            document.getElementById(slideId).scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Perbarui warna status menu yang aktif
+        const navItems = document.querySelectorAll('.nav-menu li');
+        navItems.forEach((item, i) => {
+            if(i === index) item.classList.add('active');
+            else item.classList.remove('active');
+        });
+    }
+</script>
+
+</body>
+</html>
