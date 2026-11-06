@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alan | Spesialis Media Siber & Pengembang Web</title>
+    <!-- Memuat Bootstrap 5 via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .hero-section { background-color: #f8f9fa; padding: 100px 0; }
+        .portfolio-card { transition: transform 0.3s; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .portfolio-card:hover { transform: translateY(-5px); }
+        footer { background-color: #212529; color: white; padding: 20px 0; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Alan.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#beranda">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portofolio">Portofolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Halo, Saya Alan</h1>
+            <p class="lead text-secondary mt-3">
+                Komunikator Strategis & Spesialis Media Siber
+            </p>
+            <p class="w-75 mx-auto">
+                Mengintegrasikan wawasan strategis Ilmu Komunikasi publik dengan keahlian teknis pengembangan web dan rekayasa konten visual.
+            </p>
+            <a href="#portofolio" class="btn btn-primary btn-lg mt-3 px-4">Lihat Karya Saya</a>
+        </div>
+    </section>
+
+    <!-- Tentang Saya -->
+    <section id="tentang" class="py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-4">Tentang Saya</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <p>
+                        Saya adalah mahasiswa S1 Ilmu Komunikasi yang menaruh minat besar pada tata kelola informasi di era Web 2.0. Memiliki rekam jejak dalam membangun infrastruktur digital (Laravel & Bootstrap) sekaligus mengelola interaksi massa di ranah siber.
+                    </p>
+                    <p>
+                        Saya mengutamakan literasi data, keamanan privasi, dan penyampaian pesan yang presisi dalam setiap proyek yang saya tangani.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portofolio -->
+    <section id="portofolio" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">Portofolio & Proyek</h2>
+            <div class="row g-4">
+                
+                <!-- Proyek 1 -->
+                <div class="col-md-4">
+                    <div class="card portfolio-card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Inventarisku</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Smart Asset Management</h6>
+                            <p class="card-text mt-3">Pengembangan aplikasi web mandiri menggunakan *framework* PHP modern untuk tata kelola dan efisiensi manajemen aset.</p>
+                            <span class="badge bg-secondary">Web Development</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyek 2 -->
+                <div class="col-md-4">
+                    <div class="card portfolio-card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Kampanye Digital</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Manajemen Komunitas</h6>
+                            <p class="card-text mt-3">Mengelola publikasi, taktik distribusi konten (*User Generated Content*), dan interaksi audiens untuk akun komunitas siber berskala besar.</p>
+                            <span class="badge bg-secondary">Social Media Strategy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyek 3 -->
+                <div class="col-md-4">
+                    <div class="card portfolio-card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Sinematografi Udara</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Dokumentasi Visual</h6>
+                            <p class="card-text mt-3">Perekaman lanskap udara, penyuntingan klip mentah, serta *color grading* untuk memproduksi karya visual bernilai tinggi (Lokasi: Flores).</p>
+                            <span class="badge bg-secondary">Visual Content</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak / Sesuai Aturan Privasi -->
+    <section id="kontak" class="py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-4">Mari Berkolaborasi</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="alert alert-info text-center" role="alert">
+                        Demi menjaga keamanan privasi siber, komunikasi awal diproses melalui formulir terenkripsi.
+                    </div>
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Nama Lengkap</label>
+                            <input type="text" class="form-control" placeholder="Masukkan nama Anda">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Alamat Surel (Email)</label>
+                            <input type="email" class="form-control" placeholder="nama@email.com">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Pesan</label>
+                            <textarea class="form-control" rows="4" placeholder="Tuliskan pesan atau penawaran kerja sama..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-dark w-100" onclick="alert('Terima kasih. Pesan simulasi telah terkirim.'); return false;">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Alan | S1 Ilmu Komunikasi Universitas Terbuka</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
