@@ -151,6 +151,42 @@
             margin-bottom: 0;
             line-height: 1.1;
         }
+
+        /* Pastikan elemen slide memiliki position relative */
+        .slide {
+            position: relative; 
+        }
+
+        /* Desain Panah Navigasi Kanan & Kiri */
+        .slide-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 55px;
+            height: 55px;
+            background-color: var(--accent);
+            color: var(--bg-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 100;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .slide-arrow:hover {
+            opacity: 1;
+            color: white;
+            background-color: #6e7a57;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .left-arrow { left: 30px; }
+        .right-arrow { right: 30px; }
+        
     </style>
 </head>
 <body>
@@ -166,7 +202,10 @@
         
         <!-- ================= SLIDE 1: BERANDA ================= -->
         <section id="slide1" class="slide">
-            <div class="container">
+    <!-- Tambahkan panah ini di sini -->
+    <a href="#slide2" class="slide-arrow right-arrow d-none d-md-flex">&#10095;</a>
+
+    <div class="container">
                 <div class="row align-items-center">
                     <!-- Kolom Kiri: Foto Profil & Nama -->
                     <div class="col-md-5 text-center mb-5 mb-md-0">
@@ -197,8 +236,12 @@
         </section>
 
         <!-- ================= SLIDE 2: PORTOFOLIO / GALERI ================= -->
-        <section id="slide2" class="slide" style="background-color: var(--bg-secondary);">
-            <div class="container">
+       <section id="slide2" class="slide" style="background-color: var(--bg-secondary);">
+    <!-- Tambahkan panah ini di sini -->
+    <a href="#slide1" class="slide-arrow left-arrow d-none d-md-flex">&#10094;</a>
+    <a href="#slide3" class="slide-arrow right-arrow d-none d-md-flex">&#10095;</a>
+
+    <div class="container">
                 <h2 class="fw-bold mb-5 text-center text-md-start" style="color: var(--accent);">Portofolio & Pengalaman</h2>
                 <div class="row g-4">
                     
@@ -234,8 +277,11 @@
         </section>
 
         <!-- ================= SLIDE 3: PENDIDIKAN & SLOGAN ================= -->
-        <section id="slide3" class="slide">
-            <div class="container text-center">
+       <section id="slide3" class="slide">
+    <!-- Tambahkan panah ini di sini -->
+    <a href="#slide2" class="slide-arrow left-arrow d-none d-md-flex">&#10094;</a>
+
+    <div class="container text-center">
                 <!-- Kotak Pendidikan -->
                 <div class="card-custom mx-auto shadow-sm mb-5" style="max-width: 600px;">
                     <h3 class="fw-bold mb-4" style="color: var(--accent); border-bottom: 2px solid var(--border-light); padding-bottom: 15px;">Riwayat Pendidikan</h3>
